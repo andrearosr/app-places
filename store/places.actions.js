@@ -3,7 +3,7 @@ import * as FileSystem from 'expo-file-system'
 export const ADD_PLACE = 'ADD_PLACE'
 
 
-export const addPlace = (title, image) => {
+export const addPlace = (title, image, location) => {
     return async dispatch => {
         const filename = image.split('/').pop()
         const Path = FileSystem.documentDirectory + filename
@@ -19,6 +19,8 @@ export const addPlace = (title, image) => {
                 payload: {
                     title,
                     image: Path,
+                    lat: location.lat,
+                    lng: location.lng,
                 }
             })
         } catch(err) {

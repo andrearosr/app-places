@@ -3,15 +3,17 @@ import { View, Text, ScrollView, Button, TextInput, StyleSheet } from 'react-nat
 import { useDispatch } from 'react-redux';
 import COLORS from '../constants/Colors';
 import ImageSelector from '../components/ImageSelector';
+import LocationSelector from '../components/LocationSelector';
 import { addPlace } from '../store/places.actions';
 
 const NewPlaceScreen = ({ navigation }) => {
     const dispatch = useDispatch()
     const [title, setTitle] = useState();
     const [image, setImage] = useState();
+    const [location, setLocation] = useState();
 
     const handleSave = () => {
-        dispatch(addPlace(title, image))
+        dispatch(addPlace(title, image, location))
         navigation.navigate('Direcciones') // goBack
     }
 
@@ -26,6 +28,7 @@ const NewPlaceScreen = ({ navigation }) => {
                 />
 
                 <ImageSelector onImageSelected={setImage} />
+                <LocationSelector onLocationSelected={setLocation} />
 
                 <Button
                     title="GUARDAR"
