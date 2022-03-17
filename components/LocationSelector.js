@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Button, Text, StyleSheet, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
 import MapPreview from './MapPreview';
 
 import COLORS from '../constants/Colors';
 
 function LocationSelector({ onLocationSelected }) {
+  const navigation = useNavigation();
   const [pickedLocation, setPickedLocation] = useState();
 
   const verifyPermissions = async () => {
@@ -51,6 +53,11 @@ function LocationSelector({ onLocationSelected }) {
         title="Obtener Location"
         color={COLORS.PEACH_PUFF}
         onPress={handleGetLocation}
+      />
+      <Button
+        title="Elegir en el mapa"
+        color={COLORS.BLUSH}
+        onPress={() => navigation.navigate('Map')}
       />
     </View>
   )

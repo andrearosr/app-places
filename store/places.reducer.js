@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
                 Date.now(),
                 action.payload.title,
                 action.payload.image,
+                action.payload.address,
                 action.payload.lat,
                 action.payload.lng,
             )
