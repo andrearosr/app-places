@@ -12,7 +12,7 @@ export const init = () => {
           image TEXT NOT NULL,
           address TEXT NOT NULL,
           lat REAL,
-          lng REAL,
+          lng REAL
         )`,
         [],
         () => { resolve() },
